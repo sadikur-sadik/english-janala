@@ -12,18 +12,18 @@ const createElements = (arr) => {
     return returnFunc;
 };
 
-// // const manageSpinner = (status) => {
-//     if(status === true){
-//         document.querySelector('#spinner').classList.remove('hidden');
-//         document.querySelector('#word-container').classList.add('hidden');
+const manageSpinner = (status) => {
+    if(status === true){
+        document.querySelector('#spinner').classList.remove('hidden');
+        document.querySelector('#word-container').classList.add('hidden');
 
-//     }
-//     else{
-//         document.querySelector('#spinner').classList.add('hidden');
-//         document.querySelector('#word-container').classList.remove('hidden');
+    }
+    else{
+        document.querySelector('#spinner').classList.add('hidden');
+        document.querySelector('#word-container').classList.remove('hidden');
 
-//     }
-// }
+    }
+}
 const loadLessons = () => {
 
     const url = 'https://openapi.programming-hero.com/api/levels/all';
@@ -42,7 +42,7 @@ const removeActive = () => {
 }
 
 const loadLevelWord = (id) => { //id from displayLessions
-    // manageSpinner(true);
+    manageSpinner(true);
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
     fetch(url)
     .then(res => res.json())
@@ -99,7 +99,7 @@ const displayLevelWord = (words) => {
             <p class="text-red-400 text-[14px] font-[400px]">এখনে কোন Lesson নেই</p>
             <h2 class="text-red-600 text-[30px] font-medium">অন্য Lesson Select করুন।</h2>
         </div>`;
-        // manageSpinner(false);
+        manageSpinner(false);
         return;
     };
 
@@ -122,7 +122,7 @@ const displayLevelWord = (words) => {
         </div>
         `;
         wordContainer.appendChild(card);
-        // manageSpinner(false);
+        manageSpinner(false);
     });}
 const displayLessions = (lessons) => {
 
